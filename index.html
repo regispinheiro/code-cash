@@ -3,30 +3,56 @@
         <meta charset="utf-8" />
         <title>Code Cash</title>
         <script>
-            const name = 'Regis Pinheiro'; // string
-            const age = 37; // number
-            const active = false; // boolean
-            const vote = null; // object
-            const contain = undefined; // undefined
-            // console.log('Hello World!');
-            // window.alert('Olá, mundo cruel!');
+            
+            
+            // const name = window.prompt('Digite seu nome:');
+           
+            // if(name) {
+            //     window.alert(`Ola, ${name}! Seja bem vindo ao Code Cash.`);
+            // }
+                
+            // else if(name === `` ) {
+            //     window.alert(`Ola! Seja bem vindo ao Code Cash.`);
+                
+            // } else {
+            //     window.alert(`Operação cancelada.`);
+            //     }
+
+            // for (let i = 1; i <= 100; i = i + 1) {
+            //     if (i % 2 === 0) {
+            //         console.log(`Número par: ${i}`);
+            //     } else {
+            //         console.log(`Número ímpar: ${i}`)
+            //     }
+            // }
 
 
-            console.log(name, typeof name);
-            // console.log(typeof name);
-            console.log(age, typeof age);
-            // console.log(typeof age);
-            console.log(active, typeof active);
-            // console.log(typeof active);
-            console.log(vote, typeof vote);
-            // console.log(typeof vote);
-            console.log(contain, typeof contain);
-            // console.log(typeof contain);
+           /*
+        Verifique uma lista de número de 1 a 100;
 
-            console.log('Meu nome é ' + name + ' e tenho ' + age + ' anos.');
-            console.log(`Meu nome é ${name} e tenho ${age} anos.`);
+        - se o número for divisivel por 2, imprima "n - MAR"
+        - se o número for divisível por 5, imprima "n - MENINO"
+        - se divisível por 2 e por 5, imprima "n - MARMENINO"
+      */
 
-        
+      for (let i = 1; i <= 100; i = i + 1) {
+        if (i % 2 === 0) {
+          if (i % 5 === 0) {
+            console.log(`${i} - MARMENINO`);
+          } else {
+            console.log(`${i} - MAR`);
+          }
+        } else if (i % 5 === 0) {
+          console.log(`${i} - MENINO`);
+        }
+      } 
+                
+            
+
+
+
+
+
         </script>
     </head>
 </html>
