@@ -35,23 +35,103 @@
         - se divisível por 2 e por 5, imprima "n - MARMENINO"
       */
 
-      for (let i = 1; i <= 100; i = i + 1) {
-        if (i % 2 === 0) {
-          if (i % 5 === 0) {
-            console.log(`${i} - MARMENINO`);
-          } else {
-            console.log(`${i} - MAR`);
-          }
-        } else if (i % 5 === 0) {
-          console.log(`${i} - MENINO`);
+      //  for (let i = 1; i <= 100; i = i + 1) {
+      //   if (i % 2 === 0) {
+      //     if (i % 5 === 0) {
+      //       console.log(`${i} - MARMENINO`);
+      //     } else {
+      //       console.log(`${i} - MAR`);
+      //     }
+      //   } else if (i % 5 === 0) {
+      //     console.log(`${i} - MENINO`);
+      //   }
+      // }
+
+      // function greet(name) {
+      //   alert(`Hello, ${name}!`);
+      // }
+
+      // greet ('Régis Pinheiro');
+
+      // function sum(n1, n2) {
+      // alert(n1 + n2);    
+      // }
+      
+      // sum(5, 3);
+
+      // function parse() {
+
+      // }
+
+      // function parse(n) {
+      //   if (n <= 0) {
+      //     alert('Digite um valor maior que zero.');
+      //   } else if (n % 2 === 0) {
+      //     alert(`${n} é par.`);
+      //   } else {
+      //     alert(`${n} é ímpar.`);
+      //   }
+      // }
+
+      // parse(17);
+
+
+      // function create(name) {
+      //   const phrase = `Hello, ${name}!`;
+      //   return phrase;
+      // }
+
+      // alert (create ('Régis Pinheiro'));
+
+      // function create(name) {
+      //   return `Hello, ${name}!`;
+      //   alert('Oi eu sou o Goku.');
+      // }
+
+      // const result = create ('Régis Pinheiro');
+
+      // alert(result);
+
+
+      // function parse(n) {
+      //   if (n % 2 === 0) return alert(`${n} é par.`);
+      //   alert(`${n} é ímpar.`);
+
+      // }
+
+      // parse (25);
+
+
+
+      
+        function greet() {
+        const name = prompt('Digite seu nome:');
+
+        if (name === '') {
+          return alert(
+            'Olá! Seja bem vindo ao Code Cash.'
+          );      
+        } else if (name === null) {
+          return alert ('Operação cancelada.');
+        } else if (!isNaN(Number(name))) {
+          alert('Digite um valor válido.');
+          return greet();
         }
-      } 
-                
-            
+        
+        alert(`Olá, ${name}! Seja bem vindo ao Code Cash.`);
+        }
+
+        greet();
 
 
+      
+
+  
+
+      
 
 
+    
 
         </script>
     </head>
