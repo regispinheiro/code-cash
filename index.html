@@ -102,6 +102,7 @@
       // parse (25);
 
 
+        let repeat = true;
 
       
         function greet() {
@@ -110,18 +111,108 @@
         if (name === '') {
           return alert(
             'Olá! Seja bem vindo ao Code Cash.'
-          );      
+          ); 
         } else if (name === null) {
+     repeat = false;
           return alert ('Operação cancelada.');
-        } else if (!isNaN(Number(name))) {
+        } else if (!isNaN(name)) {
           alert('Digite um valor válido.');
           return greet();
         }
         
         alert(`Olá, ${name}! Seja bem vindo ao Code Cash.`);
-        }
+      }
 
-        greet();
+      greet();
+
+      let balance = 0;
+
+      const operations = {
+        check: () => {
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        deposit: () => {
+          const deposit = prompt('Valor do depósito');
+
+          if (deposit === null) {
+            window.alert('Operação cancelada.');
+            return;
+          }
+
+          if (Number(deposit) < 1 || isNaN(deposit)) {
+            window.alert('Valor inválido.');
+            return operations.deposit();
+          }
+          balance = balance + Number(deposit);
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        cashOut: () => {
+          const cashOut = (prompt('Valor do saque'));
+
+          if (cashOut === null) {
+            window.alert('Operação cancelada.');
+            return;
+          }
+
+          if (Number(cashOut) < 1 || isNaN(cashOut)) {
+            window.alert('Valor inválido.');
+            return operations.cashOut();
+          }
+
+
+          balance = balance - Number(cashOut);
+          window.alert(`Saldo atual: R$ ${balance}`);
+        },
+        exit: () => {
+          window.alert('Foi um prazer atendê-lo. Até logo!');
+          repeat = false;
+        },
+        invalid: () => {
+          window.alert('Operação inválida.');
+        }
+      }
+
+      while (repeat) {
+        const operation = Number(prompt(`
+          Escolha uma operação:
+  
+          1. Consultar
+          2. Depositar
+          3. Sacar
+          4. Sair
+        `));
+  
+        switch (operation) {
+          case 1:
+            operations.check();
+            break;
+          case 2:
+            operations.deposit();
+            break;
+          case 3:
+            operations.cashOut();
+            break;
+          case 4:
+            operations.exit();
+            break;
+          default:
+            operations.invalid();
+        }
+      }
+
+        
+
+    
+
+
+       
+
+
+
+
+
+        
+
 
 
       
