@@ -102,10 +102,9 @@
       // parse (25);
 
 
-        let repeat = true;
-
-      
-        function greet() {
+         let repeat = true;
+          
+      function greet() {
         const name = prompt('Digite seu nome:');
 
         if (name === '') {
@@ -113,7 +112,7 @@
             'Olá! Seja bem vindo ao Code Cash.'
           ); 
         } else if (name === null) {
-     repeat = false;
+          repeat = false;
           return alert ('Operação cancelada.');
         } else if (!isNaN(name)) {
           alert('Digite um valor válido.');
@@ -126,6 +125,7 @@
       greet();
 
       let balance = 0;
+      const statement = [];
 
       const operations = {
         check: () => {
@@ -143,25 +143,48 @@
             window.alert('Valor inválido.');
             return operations.deposit();
           }
+
           balance = balance + Number(deposit);
           window.alert(`Saldo atual: R$ ${balance}`);
+
+          statement[statement.length] = {
+            type: 'Depositar',
+            value: Number(deposit)
+          };
         },
         cashOut: () => {
-          const cashOut = (prompt('Valor do saque'));
+          const cashout = prompt('Valor do saque');
 
-          if (cashOut === null) {
+          if (cashout === null) {
             window.alert('Operação cancelada.');
             return;
           }
 
-          if (Number(cashOut) < 1 || isNaN(cashOut)) {
+          if (Number(cashout) < 1 || isNaN(cashout)) {
             window.alert('Valor inválido.');
             return operations.cashOut();
           }
 
-
-          balance = balance - Number(cashOut);
+          balance = balance - Number(cashout);
           window.alert(`Saldo atual: R$ ${balance}`);
+
+          statement[statement.length] = {
+            type: 'Sacar',
+            value: Number(cashout)
+          };
+        },
+        statement: () => {
+          if (statement.length === 0) {
+            return window.alert('Nenhuma transação registrada.');
+          }
+
+          let text = 'Extrato\n\n';
+
+          for (let i = 0; i < statement.length; i++) {
+            text += `${i + 1}. ${statement[i].type}: ${statement[i].value}\n`;
+          }
+
+          window.alert(text);
         },
         exit: () => {
           window.alert('Foi um prazer atendê-lo. Até logo!');
@@ -179,7 +202,8 @@
           1. Consultar
           2. Depositar
           3. Sacar
-          4. Sair
+          4. Extrato
+          5. Sair
         `));
   
         switch (operation) {
@@ -193,6 +217,9 @@
             operations.cashOut();
             break;
           case 4:
+            operations.statement();
+            break;
+          case 5:
             operations.exit();
             break;
           default:
@@ -206,20 +233,6 @@
 
 
        
-
-
-
-
-
-        
-
-
-
-      
-
-  
-
-      
 
 
     
