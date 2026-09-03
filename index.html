@@ -165,6 +165,11 @@
             return operations.cashOut();
           }
 
+          if (Number(cashout) > balance) {
+            window.alert(`Saldo insuficiente.`);
+            return operations.cashOut();
+          }
+
           balance = balance - Number(cashout);
           window.alert(`Saldo atual: R$ ${balance}`);
 
@@ -196,7 +201,7 @@
       }
 
       while (repeat) {
-        const operation = Number(prompt(`
+        const operation = prompt(`
           Escolha uma operação:
   
           1. Consultar
@@ -204,36 +209,36 @@
           3. Sacar
           4. Extrato
           5. Sair
-        `));
-  
-        switch (operation) {
-          case 1:
-            operations.check();
-            break;
-          case 2:
-            operations.deposit();
-            break;
-          case 3:
-            operations.cashOut();
-            break;
-          case 4:
-            operations.statement();
-            break;
-          case 5:
-            operations.exit();
-            break;
-          default:
-            operations.invalid();
+        `);
+
+        if (operation === null) {
+          window.alert('Operação cancelada');
+          repeat = false
+        } else {
+          switch (Number(operation)) {
+            case 1:
+              operations.check();
+              break;
+            case 2:
+              operations.deposit();
+              break;
+            case 3:
+              operations.cashOut();
+              break;
+            case 4:
+              operations.statement();
+              break;
+            case 5:
+              operations.exit();
+              break;
+            default:
+              operations.invalid();
+          }
         }
+  
       }
 
         
-
-    
-
-
-       
-
 
     
 
